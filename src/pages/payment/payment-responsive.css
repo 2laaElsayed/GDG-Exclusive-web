@@ -1,0 +1,204 @@
+/* Payment Page Responsive Styles */
+
+/* Hover and Interactive States */
+.payment-method-label {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.payment-method-label:hover {
+  background-color: rgba(219, 68, 68, 0.05);
+  border-radius: 4px;
+}
+
+.payment-methods input[type="radio"] {
+  cursor: pointer;
+  accent-color: var(--red-color);
+}
+
+/* Error Messages */
+.error {
+  color: #e74c3c;
+  font-size: 0.875rem;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Active State for RedButton */
+.payment-methods label input[type="radio"]:checked + span {
+  color: var(--red-color);
+  font-weight: 600;
+}
+
+.payment-methods label input[type="radio"]:checked {
+  accent-color: var(--red-color);
+}
+
+/* Bank Icons Styling */
+.bank-icons {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.bank-icons img {
+  height: 20px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* Active Button State */
+.payment-page .RedButton.active button span {
+  display: none;
+}
+
+.payment-page .RedButton.active .processing {
+  display: block;
+}
+
+/* Coupon Row Styling */
+.coupon-row > * {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0px;
+}
+
+.coupon-row .RedButton {
+  width: fit-content !important;
+}
+
+.coupon-row .RedButton button {
+  font-size: 8px;
+  width: fit-content;
+}
+
+.coupon-row input[type="text"] {
+  height: fit-content;
+}
+
+.coupon-row input[type="text"]::placeholder {
+  font-size: var(--input-txt-size);
+}
+
+/* Input Focus and Hover States */
+.billing-details input[type="text"],
+.billing-details input[type="email"],
+.coupon-row input[type="text"] {
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.billing-details input[type="text"]:focus,
+.billing-details input[type="email"]:focus,
+.coupon-row input[type="text"]:focus {
+  border-color: var(--red-color);
+  background-color: #fff;
+  outline: none;
+}
+
+.billing-details input[type="text"]:hover,
+.billing-details input[type="email"]:hover,
+.coupon-row input[type="text"]:hover {
+  border-color: #ddd;
+}
+
+/* Checkbox Styling */
+.save-info input[type="checkbox"] {
+  accent-color: #d23f3f;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.save-info input[type="checkbox"]:hover {
+  accent-color: var(--red-color);
+}
+
+/* Media Queries */
+
+@media (max-width: 1030px) {
+  .payment-container {
+    flex-direction: column;
+  }
+
+  .billing-details {
+    width: 100%;
+  }
+
+  .order-summary,
+  .order-summary .TotalDetails,
+  .TotalDetails p,
+  .payment-page .coupon-row * {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .payment-page .DynamicIndex {
+    padding: 0px;
+  }
+}
+
+@media (max-width: 478px) {
+  .payment-page {
+    padding-left: 20px;
+  }
+
+  .billing-details h2 {
+    font-size: var(--sec-text-size);
+  }
+
+  .billing-details .form label {
+    font-size: var(--text-size);
+  }
+
+  .billing-details input[type="text"],
+  .billing-details input[type="email"],
+  .coupon-row input[type="text"] {
+    padding: 5px 8px;
+  }
+
+  .payment-methods label {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .payment-method-label {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bank-icons {
+    margin: 0px;
+    width: 100%;
+  }
+
+  .bank-icons img {
+    width: 100%;
+    object-fit: contain;
+    margin: 8px 0 0 0;
+  }
+
+  .coupon-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .coupon-row > * {
+    width: 100%;
+  }
+
+  .coupon-row input[type="text"],
+  .coupon-row .RedButton {
+    width: 100% !important;
+  }
+
+  .coupon-row .RedButton button {
+    width: 100%;
+    padding: 11px 25px;
+    font-size: var(--input-txt-size);
+  }
+}
