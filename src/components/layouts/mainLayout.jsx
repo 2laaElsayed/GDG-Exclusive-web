@@ -1,7 +1,7 @@
-import Nav from "../Nav/Nav"
+import Nav from "../nav/Nav.jsx"
 import Footer from "../Footer/Footer"
 import { Outlet } from "react-router-dom"
-
+import AddToTop from "../AddToTop.jsx"
 
 
 export default function MainLayout()
@@ -12,6 +12,7 @@ export default function MainLayout()
     <Nav/>
    <Outlet/>
     <Footer/>
+      <AddToTop/>
     </>
 
 }

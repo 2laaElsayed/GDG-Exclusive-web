@@ -1,0 +1,152 @@
+.AllOrders {
+  background: #fff;
+  border-radius: 8px;
+  font-size: var(--sec-text-size);
+  font-family: var(--Inter-regular);
+  overflow-y: auto;
+    padding:5px 2rem;
+
+  /* Height for 7 rows (each row ~48px + header ~48px) */
+  height: calc(55px * 8); /* 7 rows + 1 header row */
+}
+
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #fff;
+  font-size: var(--sec-text-size);
+
+}
+
+.orders-table tr:hover {
+  background: #f9f9f9;
+  cursor: pointer;
+} 
+
+.orders-table th,
+.orders-table td {
+    padding: 16px 12px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+  font-size:var(--text-size);
+}
+
+.orders-table th {
+  font-weight: 600;
+  color: #222;
+  background: #fafafa;
+}
+
+.orders-table *
+{
+
+  font-size: var(--input-txt-size);
+}
+
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: var(--input-txt-size);
+  font-weight: 500;
+  color: #222;
+}
+
+.status-pending {
+  background: #ffd6dd;
+  color: #e74c3c;
+  
+}
+
+.status-inprogress {
+  background: #ffe97a;
+  color: #b38600;
+  
+}
+
+.status-completed {
+  background: #2ee5c7;
+  color: #fff;
+}
+
+.status-cancelled {
+  background: #e0e0e0;
+  color: #888;
+}
+
+.cancel-btn {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #ff4d4f;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cancel-btn:disabled {
+  background: #eee;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .orders-table th,
+  .orders-table td {
+    padding: 10px 6px;
+    font-size: 14px;
+  }
+}
+
+.filter-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white-color);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: var(--input-txt-size);
+  color: #222;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin: 10px 3px;
+  border: 1px solid #e0e0e0;
+}
+
+.filter-status:hover {
+  background: var(--grey-hover);
+}
+
+.filter-select {
+  display: inline-flex;
+  align-items: center;
+  background: var(--white-color);
+  border-radius: 6px;
+  padding: 8px 2px;
+  font-size: var(--input-txt-size);
+  color: #222;
+  border: 1px solid #e0e0e0;
+  margin: 10px 3px;
+}
+
+.custom-filter-select {
+  background: transparent;
+  border: none;
+  font-size: var(--input-txt-size);
+  color: #222;
+  outline: none;
+  padding: 0px;
+  cursor: pointer;
+  min-width:50px;
+}
+
+
+
+.filter-select:hover,
+.custom-filter-select:hover {
+  background: #e9f0ff;
+}
