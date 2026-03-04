@@ -10,7 +10,7 @@ export default function MainLayout()
 
     return <>
     <Nav/>
-<Outlet/>
+   <Outlet/>
     <Footer/>
       <AddToTop/>
     </>
