@@ -5,6 +5,8 @@ import MainLayout from './components/layouts/mainLayout'
 import Home from './pages/Home/Home'
 import Cart from './pages/cart/cart'
 import Payment from './pages/payment/payment'
+import Account from './pages/Account/Account'
+import ProfilePart from './components/account/profilePart'
 
 function App() {
 
@@ -27,6 +29,17 @@ function App() {
       path:"payment",
       element:<Payment/>
       
+    }
+    ,
+     {
+      path:"account",
+      element:<Account/>,
+      children:[
+        {
+          path:"",
+          element:<ProfilePart/>
+        }
+      ]
     }
   ]
 

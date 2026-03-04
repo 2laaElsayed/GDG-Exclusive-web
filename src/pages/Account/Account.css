@@ -1,0 +1,365 @@
+
+/* static layout and typography now handled by Tailwind utility classes in JSX */
+/* keep active link color for NavLink from router */
+.account-sidebar a.active {
+  color: var(--red-color) !important;
+}
+
+/* arrow button needs custom positioning and behavior */
+.arrow {
+  position: absolute;
+  right: -30px;
+  top: 0px;
+  background-color: white;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.103);
+    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    cursor: pointer;
+}
+
+.arrow:hover
+{
+  background-color: var(--grey-color);
+}
+
+/* retain form-related rules and other helpers that are not converted to Tailwind yet */
+.profile-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-grid  {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.form-grid div ,.password-input{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: var(--hover-transition);
+}
+
+label {
+  font-size: var(--text-size);
+  font-family: var(--poppines-regular);
+  margin-bottom: 5px;
+  color: var(--black-color);
+}
+.password-label{
+    cursor: pointer;
+    margin-top: 25px ;
+    background-color: var(--grey-color);
+    width: fit-content;
+    font-size: var(--input-txt-size);
+
+
+}
+
+.password-label:hover{
+
+  background-color: var(--grey-hover);
+}
+input {
+  padding: 10px;
+  border-radius: 4px;
+  font-size: var(--input-txt-size);
+  font-family: var(--poppines-regular);
+  background-color: var(--grey-color);
+  border: none;
+  transform: var(--hover-transition);
+}
+.password-input
+{
+visibility: hidden;
+height: 0px;
+overflow: hidden;
+ 
+}
+
+input:hover {
+  background-color: var(--grey-hover);
+}
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.btn-cancel {
+  background: transparent;
+  border: none;
+  color: var(--black-color);
+  font-size: var(--input-txt-size);
+  cursor: pointer;
+}
+
+.password-input.visible{
+
+  visibility: visible;
+  height: 100%;
+  overflow: visible;
+
+}
+
+.btn-save {
+  background: var(--red-color);
+  color: var(--white-color);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: var(--input-txt-size);
+  font-family: var(--poppines-regular);
+  transform: var(--hover-transition);
+}
+.btn-save:hover{
+    background: var(--red-hover);
+}
+.error {
+  color: var(--red-color);
+  font-size: var(--input-txt-size);
+  font-family: var(--poppines-regular);
+  margin-top: 5px;
+}
+.success-message {
+  color: green;
+  background: #e8f9e8;
+  border: 1px solid #b6e2b6;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-family: var(--poppines-regular);
+  font-size: var(--text-size);
+}
+
+.account-container  .AllOrders .row ,.DashboardPage  .AllOrders .row 
+{
+  display: none;
+}
+
+.DiscountCategory p
+{
+margin: 0px;
+font-size: var(--text-size);
+}
+@media (max-width: 1010px) {
+  .account-container {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding:30px 0px;
+
+  }
+
+  .account-sidebar {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 100;
+    padding: 10px 20px;
+    border-radius: 5px;
+    height: 80vh;
+    top: 20%;
+    left: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.103);
+    transition: 0.5s ease-in-out;
+    transform: translateX(-190px);
+
+  }
+  .account-content{
+        padding: 20px 15px;
+  }
+  .account-sidebar.active
+  {
+    transform: translateX(0px);
+  }
+  .arrow
+  {
+    display: flex;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column; 
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 658px) {
+
+.account-container table thead ,.DashboardPage  table thead
+{
+  display: none;
+}
+
+ .account-container table tbody ,.DashboardPage table tbody
+{
+  display: block;
+  width: 100%;
+  font-size: var(--text-size);
+  box-shadow: none;
+
+}
+ .account-container table tr , .DashboardPage table tr {
+
+  background-color: transparent;
+    display: flex;
+    flex-direction: column;
+        gap: 5px;
+    justify-content: flex-start;
+    align-items: flex-start;
+      margin-bottom: 60px ;
+  width: 100%;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.057);
+      padding: 10px;
+
+
+ }
+.account-container table  td  ,.DashboardPage table td 
+{
+display: flex;
+        text-align: left; /* Align text to the left */
+        border: none;
+        padding: 5px 0;
+        justify-content: flex-start;
+        align-items: center ;
+        width: 100% !important;
+padding: 8px;
+      font-size: var(--text-size) ;
+      gap: 5px;
+
+}
+
+.account-container table td * , .DashboardPage table td *
+{
+    width: 100%;
+}
+
+
+.account-container table td:last-child , .DashboardPage table td:last-child 
+{
+justify-content: center;
+}
+
+
+.account-container table td::before ,.DashboardPage table td::before
+{
+  content: attr(data-label) ; /* Get the label from HTML */
+        float: left; 
+      font-weight: bold;
+
+}
+.account-container .AllOrders table  td:nth-child(5), 
+.account-container .AllOrders table  td:nth-child(6), 
+.account-container .AllOrders table  td:nth-child(7),
+.DashboardPage .AllOrders table  td:nth-child(5), 
+.DashboardPage .AllOrders table  td:nth-child(6), 
+.DashboardPage .AllOrders table  td:nth-child(7)
+{
+  display: none;
+} 
+
+.account-container .AllOrders table  .row,
+.DashboardPage .AllOrders table  .row
+{
+  display: flex;
+  margin: 0px;
+  width: 100%;
+  justify-content: end;
+  align-items: flex-start;
+}
+.account-container table .row td ,
+.DashboardPage table .row td
+{
+  width: fit-content !important;
+}
+.account-container table .row td *,
+.DashboardPage table .row td *
+{
+width: fit-content ;
+}
+
+.account-container   .currentOrder-container  table td:last-child,
+.DashboardPage  .currentOrder-container  table td:last-child
+{
+  justify-content: flex-start;
+}
+
+
+}
+
+@media (max-width: 405px) {
+  .account-container table thead tr, .account-container table td,.DiscountCategory p
+
+{
+    font-size: 9px;
+  }
+ /*  .account-container table td:last-child button {
+    width: 5px;
+    height: 5px;
+  } */
+   
+.account-container h2 ,
+.DashboardPage h2
+{
+  font-size: var(--sec-text-size);
+}.account-container small
+{
+  font-size: var(--input-txt-size) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+}
+
+  .container, .container-sm {
+    max-width: 100% !important;
+  }
+
+}
+@media (max-width: 274px) {
+
+ .account-container table td,
+ .DashboardPage  table td
+  {
+gap: 1px;
+}
+ 
+}
+
+/* @media (max-width:552px) {
+  
+  .account-container > div 
+  {
+    overflow-x: scroll;
+        padding: 5px 1rem;
+  }
+}
+
+@media (max-width:302px) {
+  
+  .account-container > div  div:nth-of-type(2)
+  {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
+ */
