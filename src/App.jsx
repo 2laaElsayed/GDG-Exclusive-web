@@ -9,6 +9,9 @@ import Account from './pages/Account/Account'
 import ProfilePart from './components/account/profilePart'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import SignUp from './pages/SignUp/SignUp'
+import Login from './pages/Login/Login'
+
 
 function App() {
 
@@ -33,6 +36,15 @@ function App() {
       
     }
     ,
+    {
+          path: "signup", 
+          element: <SignUp />
+     },  
+     {
+          path: "login", 
+          element: <Login />
+     },
+
      {
       path:"account",
       element:<Account/>,
