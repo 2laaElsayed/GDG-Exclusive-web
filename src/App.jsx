@@ -14,6 +14,8 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import SignUp from './pages/SignUp/SignUp'
 import Login from './pages/Login/Login'
+import AllOrders from './components/account/orderPart/AllOrders/allOrders'
+import DiscountPart from './components/account/discountPart/discountPart'
 
 
 function App() {
@@ -67,7 +69,15 @@ function App() {
         {
           path:"",
           element:<ProfilePart/>
-        }
+        },
+        {
+          path:"orders",
+          element:<AllOrders/>
+        },
+        {
+          path:"discounts",
+          element:<DiscountPart/>
+        },
       ]
     }
   ]

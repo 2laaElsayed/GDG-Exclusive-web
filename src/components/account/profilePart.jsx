@@ -161,7 +161,9 @@ console.log(database_validationErrors);
          
           </div>
 
-          <label   onClick={ ()=>{setPassAct(!passAct)}} className="password-label btn "  >Password Changes</label>
+          <label   onClick={ ()=>{setPassAct(!passAct)}} className="password-label btn p-3 
+          rounded 
+          "  >Password Changes</label>
 
            <div             className={`${passAct?"visible":""} password-input`}
 >

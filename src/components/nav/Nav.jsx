@@ -52,6 +52,9 @@ const Navbar = () => {
           <Link to="/" className="relative group">
             <span className="hover:text-red-500 transition-colors font-inter">Home</span>
           </Link>
+          <Link to="/account" className="relative group">
+            <span className="hover:text-red-500 transition-colors">Account</span>
+          </Link>
           <Link to="/contact" className="relative group">
             <span className="hover:text-red-500 transition-colors">Contact</span>
           </Link>
@@ -125,6 +128,7 @@ const Navbar = () => {
           
           <div className="mt-12 space-y-6 flex flex-col">
             <Link to="/" onClick={closeSidebar}>Home</Link>
+            <Link to="/account" onClick={closeSidebar}>Account</Link>
             <Link to="/contact" onClick={closeSidebar}>Contact</Link>
             <Link to="/about" onClick={closeSidebar}>About</Link>
             {!userToken && <Link to="/signup" onClick={closeSidebar}>Sign Up</Link>}

@@ -3,10 +3,11 @@ import toast, { Toaster } from "react-hot-toast";
 import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { CiFilter } from "react-icons/ci";
-import LoadingModal from "../../../../Common/modal/modal";
-import NoOrdersModal from "../../../noOrdersModal/noOrdersModal";
+import NoOrdersModal from "../noOrdersModal/noOrdersModal";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import LoadingModal from "../../../loadingModal/LoadingModal";
+import "./allOrders.css";
 
 export default function AllOrders() {
   const [filter, setFilter] = useState("all");
@@ -115,7 +116,7 @@ export default function AllOrders() {
   }, [filter, page, allOrders]);
 
   return (
-    <div className="AllOrders">
+   <div className="AllOrders bg-white rounded-lg text-[var(--sec-text-size)] font-[var(--Inter-regular)] overflow-auto px-8 py-[5px]" >
       {loading && orders.length === 0 ? (
         <LoadingModal loading={loading} text={"Loading orders..."} />
       ) : (
@@ -123,22 +124,17 @@ export default function AllOrders() {
           <Toaster position="top-center" reverseOrder={false} />
           <h2>All Orders</h2>
           <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: "10px",
-            }}
+            className="flex items-center justify-between gap-2.5"
           >
             <p>
-              <small style={{ fontSize: "13px", color: "var(--red-color)" }}>
+              <small className="text-[13px] text-[var(--red-color)]">
                 Select an order to see more information.
               </small>
             </p>
-            <div className="filter-select">
+            <div className="filter-select inline-flex items-center bg-white rounded-md px-4 py-2 text-[var(--input-txt-size)] text-[#222] border border-[#e0e0e0] my-2.5 mx-1">
               <CiFilter />
               <select
-                className="custom-filter-select"
+                className="custom-filter-select bg-transparent border-none text-[var(--input-txt-size)] text-[#222] outline-none p-0 cursor-pointer min-w-[50px] hover:bg-[#e9f0ff]"
                 value={filter}
                 onChange={(e) => {
                   setFilter(e.target.value);
@@ -154,20 +150,20 @@ export default function AllOrders() {
             </div>
           </div>
 
-          <table className="orders-table">
+          <table className="orders-table w-full border-collapse mt-5 bg-white text-[var(--sec-text-size)]">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Created At</th>
-                <th>Total</th>
-                <th>Status</th>
-                <th></th>
-                <th></th>
+                <th className="px-3 py-4 text-left border-b border-[#f0f0f0] text-[var(--text-size)] font-semibold text-[#222] bg-[#fafafa]">ID</th>
+                <th className="px-3 py-4 text-left border-b border-[#f0f0f0] text-[var(--text-size)] font-semibold text-[#222] bg-[#fafafa]">Created At</th>
+                <th className="px-3 py-4 text-left border-b border-[#f0f0f0] text-[var(--text-size)] font-semibold text-[#222] bg-[#fafafa]">Total</th>
+                <th className="px-3 py-4 text-left border-b border-[#f0f0f0] text-[var(--text-size)] font-semibold text-[#222] bg-[#fafafa]">Status</th>
+                <th className="px-3 py-4 text-left border-b border-[#f0f0f0] text-[var(--text-size)] font-semibold text-[#222] bg-[#fafafa]"></th>
+                <th className="px-3 py-4 text-left border-b border-[#f0f0f0] text-[var(--text-size)] font-semibold text-[#222] bg-[#fafafa]"></th>
               </tr>
             </thead>
             <tbody>
               {orders.length === 0 ? (
-                <tr className="no-orders-tr ">
+                <tr className="no-orders-tr">
                   <td colSpan={6}>
                     <NoOrdersModal status={filter} />
                   </td>
@@ -179,54 +175,23 @@ export default function AllOrders() {
                       navigate(`/account/order/${order.id}`);
                     }}
                     key={order.id}
+                    className="hover:bg-[#f9f9f9] cursor-pointer"
                   >
-                    <td data-label="ID:">{getOrderIndex(id)}</td>
-                    <td data-label="Start Date:">
+                    <td className="px-3 py-4 text-left border-b border-[#f0f0f0] text-[var(--text-size)]" data-label="ID:">{getOrderIndex(id)}</td>
+                    <td className="px-3 py-4 text-left border-b border-[#f0f0f0] text-[var(--text-size)]" data-label="Start Date:">
                       {new Date(order.createdAt).toLocaleDateString()}
                     </td>
-                    <td data-label="Total:">{order.total.toFixed(1)} EGP</td>
-                    <div className="row">
-                      <td>
-                        <span
-                          className={`status-badge ${getStatusClass(order.status)}`}
-                        >
-                          {order.status}
-                        </span>
-                      </td>
-                      <td onClick={(e) => e.stopPropagation()}>
-                        <Button
-                          className="btn cancel-icon"
-                          disabled={order.status !== "Pending"}
-                          onClick={() => {
-                            handleShow(order.id, id, "cancel");
-                          }}
-                        >
-                          Cancel
-                        </Button>
-                      </td>
-                      <td onClick={(e) => e.stopPropagation()}>
-                        <Button
-                          className="btn cancel-icon"
-                          variant="danger"
-                          disabled={order.status !== "Canceled"}
-                          onClick={() => {
-                            handleShow(order.id, id, "delete");
-                          }}
-                        >
-                          Delete
-                        </Button>
-                      </td>
-                    </div>
-                    <td>
+                    <td className="px-3 py-4 text-left border-b border-[#f0f0f0] text-[var(--text-size)]" data-label="Total:">{order.total.toFixed(1)} EGP</td>
+                    <td className="px-3 py-4 text-left border-b border-[#f0f0f0] text-[var(--text-size)]">
                       <span
-                        className={`status-badge ${getStatusClass(order.status)}`}
+                        className={`status-badge inline-block px-4 py-1.5 rounded-md text-[var(--input-txt-size)] font-medium text-[#222] ${getStatusClass(order.status)}`}
                       >
                         {order.status}
                       </span>
                     </td>
-                    <td onClick={(e) => e.stopPropagation()}>
+                    <td onClick={(e) => e.stopPropagation()} className="px-3 py-4 text-left border-b border-[#f0f0f0] text-[var(--text-size)]">
                       <Button
-                        className="btn cancel-icon"
+                        className="btn cancel-icon px-4 py-1.5 border-none rounded-md bg-[#ff4d4f] text-white font-medium cursor-pointer transition-colors duration-200 disabled:bg-[#eee] disabled:text-[#aaa] disabled:cursor-not-allowed"
                         disabled={order.status !== "Pending"}
                         onClick={() => {
                           handleShow(order.id, id, "cancel");
@@ -235,9 +200,9 @@ export default function AllOrders() {
                         Cancel
                       </Button>
                     </td>
-                    <td onClick={(e) => e.stopPropagation()}>
+                    <td onClick={(e) => e.stopPropagation()} className="px-3 py-4 text-left border-b border-[#f0f0f0] text-[var(--text-size)]">
                       <Button
-                        className="btn cancel-icon"
+                        className="btn cancel-icon px-4 py-1.5 border-none rounded-md bg-[#ff4d4f] text-white font-medium cursor-pointer transition-colors duration-200 disabled:bg-[#eee] disabled:text-[#aaa] disabled:cursor-not-allowed"
                         variant="danger"
                         disabled={order.status !== "Canceled"}
                         onClick={() => {
@@ -304,12 +269,7 @@ export default function AllOrders() {
       )}
       <Stack
         spacing={2}
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "20px",
-        }}
+        className="flex justify-center items-center mt-5"
       >
         <Pagination count={totalPages} onChange={handleChange} page={page} />
       </Stack>

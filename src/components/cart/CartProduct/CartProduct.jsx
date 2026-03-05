@@ -33,7 +33,7 @@ export default function CartProduct({ item, index }) {
           <input
             type="text"
             value={item.quantity}
-            className="w-[30px] border-none text-center text-[11px] h-full outline-none p-0 cart-quantity-input"
+            className="w-[30px] border-none text-black text-center text-[11px] h-full outline-none p-0 cart-quantity-input"
             readOnly
           />
           <div className="flex flex-col h-full w-[15px] border-l border-[#eee]">
@@ -53,35 +53,20 @@ export default function CartProduct({ item, index }) {
         200 EGP
       </td>
       <td className="px-[25px] py-[8px] text-center">
-        <button
-          className="flex justify-center items-center w-[38px] h-[38px] rounded-full bg-[var(--grey-color)] text-[var(--red-color)] text-[11px] font-semibold cursor-pointer transition-all duration-200 hover:bg-[var(--grey-hover)] hover:text-[var(--red-hover)] border-none leading-[1]"
-          onClick={handleShow}
-        >
-          ✖
-        </button>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title style={{ fontSize: "22px" }}>Delete</Modal.Title>
-          </Modal.Header>
-          <Modal.Body style={{ fontSize: "12px" }}>
-            Do you want to delete{" "}
-            <span style={{ fontWeight: "bold" }}>{item.productName}</span>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button
-              style={{
-                fontSize: "12px",
-                background: "var(--red-color)",
-                outline: "none",
-                border: "none",
-                padding: "8px 20px",
-              }}
-              variant="primary"
-            >
-              Delete
-            </Button>
-          </Modal.Footer>
-        </Modal>
+       <Button variant="primary" className="btn remove-icon cursor-pointer bg-grey p-2 rounded-4xl"  onClick={handleShow}>
+                    ✖
+                </Button>
+          <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title style={{ fontSize: "22px" }}>Delete</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body style={{ fontSize: "12px" }}>Do you want to delete <span style={{ fontWeight: "bold" }}>{item.productName}</span></Modal.Body>
+                    <Modal.Footer>
+                        <Button style={{ fontSize: "12px", background: "var(--red-color)", outline: "none", border: "none", padding: "8px 20px" }} variant="primary" onClick={() => { handleClose(); Delete_From_Cart(index, item.cartItemId); }}>
+                            Delete
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
       </td>
     </tr>
   );

@@ -8,7 +8,7 @@ export default function RedButton({text,className="",SpinnerRef=null,btn_Functio
  
     return <div  className={` w-full flex justify-center itmes-center  text-(--input-txt-size) m-0 p-0 mt-2 ${className}`}> 
 
- <button className=" rounded-xs transition-all duration-200 px-6.25 py-2.75 m-0 text-(--white-color) bg-(--red-color) hover:bg-(--red-hover) border-none outline-none flex justify-center items-center" onClick={()=>{btn_Function()}}>
+ <button className=" rounded-xs transition-all duration-200 px-5.25 py-2.5 m-0 text-(--white-color) bg-(--red-color) hover:bg-(--red-hover) border-none outline-none flex justify-center items-center " style={{fontSize:"12px"}} onClick={()=>{btn_Function()}}>
    <span>
 
 {text} 

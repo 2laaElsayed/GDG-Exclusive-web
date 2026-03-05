@@ -42,7 +42,7 @@ export default function Account() {
           <ul className="list-none px-5 font-[var(--poppines-regular)]">
             <li className="my-[5px]">
               <NavLink
-                to="allOrders"
+                to="orders"
                 className="text-black opacity-[var(--text-opacity)] text-[var(--input-txt-size)] transition-colors duration-200 hover:text-[var(--red-hover)]"
               >
                 Orders
@@ -56,7 +56,7 @@ export default function Account() {
           <ul className="list-none px-5 font-[var(--poppines-regular)]">
             <li className="my-[5px]">
               <NavLink
-                to="discount"
+                to="discounts"
                 className="text-black opacity-[var(--text-opacity)] text-[var(--input-txt-size)] transition-colors duration-200 hover:text-[var(--red-hover)]"
               >
                 Discounts

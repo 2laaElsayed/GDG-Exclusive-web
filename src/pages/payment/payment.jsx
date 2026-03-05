@@ -44,7 +44,7 @@ export default function Payment() {
   const applyDiscount = () => {};
 
   return (
-    <div className="bg-white font-[Inter] px-[var(--pages-padding)] pt-0 payment-page">
+    <div className=" font-[Inter] px-[var(--pages-padding)] pt-0 payment-page">
       <div className="flex max-w-[1100px] mx-auto pt-[20px] gap-[48px] payment-container">
         {/* Billing Details */}
         <div className="flex-[1.2] billing-details">
